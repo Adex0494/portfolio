@@ -1,95 +1,83 @@
+'use client'
+
+import React from 'react'
+import {
+  Main,
+  FlexContainer,
+  FlexColumnContainer,
+  BtnsContainer,
+  StyledIconContainer,
+  StyledCircleContainer,
+  ImageContainer,
+  Avatar,
+  AbsoluteContainer,
+} from './page.styled'
+import HomeIntroTxt from '@/components/homeIntroTxt'
+import ShadowButton from '@/components/shadowButton'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import Photo from '../../public/profile.png'
 import Image from 'next/image'
-import styles from './page.module.css'
+import { palette } from '@/constants/palette'
+import ShadowCircle from '@/components/shadowCircle'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <Main>
+      <ShadowCircle/>
+      <FlexContainer>
+        <FlexColumnContainer>
+          <HomeIntroTxt
+            greeting='Hello!'
+            nameTxt={`I'm Ariangel`}
+            profession='Frontend developer'
+          />
+          <BtnsContainer>
+            <ShadowButton
+              backgroundcolor={palette.main.blackBackground}
+              topshadowcolor={palette.main.topShadowColor}
+              bottomshadowcolor={palette.main.bottomShadowColor}
+              url='/calculator'
+            >
+              <p style={{ color: palette.main.whiteBackground}}>Download CV</p>
+            </ShadowButton>
+            <ShadowButton
+              backgroundcolor={palette.main.blackBackground}
+              topshadowcolor={palette.main.topShadowColor}
+              bottomshadowcolor={palette.main.bottomShadowColor}
+              url='https://github.com/Adex0494/'
+            >
+              <StyledCircleContainer>
+                <StyledIconContainer>
+                  <GitHubIcon style={{ width: '32px', height: '32px' }} />
+                </StyledIconContainer>
+              </StyledCircleContainer>
+            </ShadowButton>
+            <ShadowButton
+              backgroundcolor={palette.main.blackBackground}
+              topshadowcolor={palette.main.topShadowColor}
+              bottomshadowcolor={palette.main.bottomShadowColor}
+              url='https://www.linkedin.com/in/ariangel-d%C3%ADaz-espaillat-531171168/'
+            >
+              <StyledCircleContainer>
+                <StyledIconContainer>
+                  <LinkedInIcon style={{ width: '32px', height: '32px' }} />
+                </StyledIconContainer>
+              </StyledCircleContainer>
+            </ShadowButton>
+          </BtnsContainer>
+        </FlexColumnContainer>
+        <Avatar>
+          <AbsoluteContainer/>
+          <ImageContainer>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              src={Photo}
+              alt='Picture of the author'
+              style={{ width: '100%', height: '85%', objectFit: 'contain', borderRadius: '50%' }}
             />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          </ImageContainer>
+        </Avatar>
+      </FlexContainer>
+    </Main>
   )
 }
