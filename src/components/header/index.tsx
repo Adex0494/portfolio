@@ -16,8 +16,8 @@ export default function Header() {
       </div>
       <div>
         <FlexContainer>
-          <MenuLabel onClick={()=> router.push('/')}>About</MenuLabel>
-          <MenuLabel onClick={()=> router.push('/calculator')}>Projects</MenuLabel>
+          <MenuLabel onClick={()=> router.push('/about')}>About</MenuLabel>
+          <MenuLabel onClick={()=> router.push('/calculator ')}>Projects</MenuLabel>
           <MenuLabel onClick={()=> router.push('/')}>Contacts</MenuLabel>
         </FlexContainer>
       </div>

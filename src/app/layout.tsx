@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import Header from '@/components/header'
+import { palette } from '@/constants/palette'
 
 const msr = Montserrat({ subsets: ['latin'], weight: '300' })
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={msr.className} style={{height: '100vh'}}>
+      <body className={msr.className} style={{height: '100vh', backgroundColor: palette.main.blackBackground}}>
         <Header/>
         {children}
       </body>
