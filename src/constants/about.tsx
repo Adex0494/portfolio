@@ -1,12 +1,35 @@
+export const fullName = 'Ariangel Díaz Espaillat'
+
 export const birthDate = 'October 4th, 1994'
+
+export const contacts = {
+    email: {
+        href:'mailto: adex0494@gmail.com',
+        text:'adex0494@gmail.com'
+    },
+    location: {
+        href:'https://www.google.com/maps/place/Bella+Vista,+Santiago+De+Los+Caballeros+51000/@19.4430748,-70.7087802,16z/data=!3m1!4b1!4m6!3m5!1s0x8eb1cf4fc363a529:0xbc6a912085e7ddaa!8m2!3d19.4453668!4d-70.7094127!16s%2Fg%2F1td2vz26?entry=ttu',
+        text:'Bella Vista, Santiago, 51000, Dominican Republic'
+    },
+    tel: {
+        href:'tel:1-809-910-4977',
+        text:'1-809-910-4977'
+    },
+    linkedIn: {
+        href:'https://www.linkedin.com/in/ariangel-d%C3%ADaz-espaillat-531171168/',
+        text: 'LinkedIn profile',
+    },
+    github: {
+        href:'https://github.com/Adex0494',
+        text: 'Github profile'
+    }
+}
 
 export const links = [
     ['JavaScript Certificate', 'https://www.udemy.com/certificate/UC-4df68261-536a-4734-9ab4-fbf5be6942b2/'],
     ['React.js Certificate','https://www.udemy.com/certificate/UC-d39e6e98-a8a9-4505-b33e-d029ac3c7399/'],
-    ['JavaScript app example','https://affectionate-fermat-72f811.netlify.app/#5ed6604591c37cdc054bcc13'],
-    ['React app example','https://react-45d3a.web.app/'],
-    ['Github profile', 'https://github.com/Adex0494'],
-    ['LinkedIn profile', 'https://www.linkedin.com/in/ariangel-d%C3%ADaz-espaillat-531171168/']
+    [contacts.github.text, contacts.github.href],
+    [contacts.linkedIn.text, contacts.linkedIn.href]
 ]
 
 export const skills = [

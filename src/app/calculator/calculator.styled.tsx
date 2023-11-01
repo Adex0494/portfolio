@@ -1,17 +1,27 @@
 import styled from "styled-components";
-import { device } from "@/constants/responsiveSizes";
+import { device, documentDimensions } from "@/constants/responsiveSizes";
 import transition from "@/constants/transition";
+import { palette } from "@/constants/palette";
 
 export const StyledMain = styled.div<{bckground: string}>`
   background-color: ${({bckground})=>bckground};
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   ${transition};
+  height: calc(100vh - ${documentDimensions.mobileS.headerHeight});
+  @media ${device.tablet}{
+    height: calc(100vh - ${documentDimensions.tablet.headerHeight});
+  }
+  @media ${device.laptopL}{
+    height: calc(100vh - ${documentDimensions.laptopL.headerHeight});
+  }
 `
 export const StyledContainer = styled("div")`
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: -1px -1px 8px ${palette.main.topShadowColor}, 1px -1px 8px ${palette.main.topShadowColor}, -1px 1px 8px ${palette.main.topShadowColor}, 1px 1px 8px ${palette.main.topShadowColor};
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -7,7 +7,8 @@ import {
   IconTextContainer,
   StyledTypography,
   BulletPointTypography,
-  StyledPhone,
+  StyledPhoneIcon,
+  StyledLinkedInIcon,
   Main,
   StyledPlaceIcon,
   BodySection,
@@ -25,9 +26,11 @@ import {
   StyledTypographySkill,
   StyledDescTypography,
   Link,
+  StyledCompanyTypography,
 } from './about.styled'
 import SkillContainer from '@/components/skill-container'
 import {
+  fullName,
   birthDate,
   links,
   skills,
@@ -35,7 +38,9 @@ import {
   hobbies,
   description,
   history,
-} from '../../constants/profile'
+  contacts,
+} from '../../constants/about'
+import IconText from '@/components/iconText'
 
 const skillLevel = (quantity: number) => {
   const skillLevel = []
@@ -50,23 +55,10 @@ const Body = () => {
     <Main>
       <BodySection>
         <SubHeader>
-          <IconTextContainer href='mailto: adex0494@gmail.com'>
-            <StyledMailIcon />
-            <StyledTypography>adex0494@gmail.com</StyledTypography>
-          </IconTextContainer>
-          <IconTextContainer
-            target='_blank'
-            href='https://www.google.com/maps/place/Bella+Vista,+Santiago+De+Los+Caballeros+51000/@19.4430748,-70.7087802,16z/data=!3m1!4b1!4m6!3m5!1s0x8eb1cf4fc363a529:0xbc6a912085e7ddaa!8m2!3d19.4453668!4d-70.7094127!16s%2Fg%2F1td2vz26?entry=ttu'
-          >
-            <StyledPlaceIcon />
-            <StyledTypography>
-              Bella Vista, Santiago, 51000, Dominican Republic
-            </StyledTypography>
-          </IconTextContainer>
-          <IconTextContainer href='tel:1-809-910-4977'>
-            <StyledPhone />
-            <StyledTypography>1-809-910-4977</StyledTypography>
-          </IconTextContainer>
+          <IconText href={contacts.email.href} text={contacts.email.text} Icon={StyledMailIcon}/>
+          <IconText href={contacts.linkedIn.href} text={fullName} Icon={StyledLinkedInIcon} blankTarget/>
+          <IconText href={contacts.location.href} text={contacts.location.text} Icon={StyledPlaceIcon} blankTarget/>
+          <IconText href={contacts.tel.href} text={contacts.tel.text} Icon={StyledPhoneIcon}/>
         </SubHeader>
         <InnerContainer>
           <LeftContainer>
@@ -98,7 +90,7 @@ const Body = () => {
                     key={hist.company + hist.period + hist.role}
                     style={{ marginTop: '24px' }}
                   >
-                    <StyledTypography variant='subtitle1'>{`${hist.role}, ${hist.company}`}</StyledTypography>
+                    <StyledCompanyTypography variant='subtitle1'>{`${hist.role}, ${hist.company}`}</StyledCompanyTypography>
                     <StyledTypography
                       variant='caption'
                       style={{ marginBottom: '10px !important' }}

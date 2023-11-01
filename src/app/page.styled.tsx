@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import { palette } from '../constants/palette'
-import { device } from "@/constants/responsiveSizes";
+import { device, documentDimensions } from "@/constants/responsiveSizes";
 
 export const Main = styled.main`
   position: relative;
   overflow: hidden;
   width: 100vw;
-  height: calc(100vh - 24px);
+  height: calc(100vh - ${documentDimensions.mobileS.headerHeight});
   background-color: ${palette.main.blackBackground};
-  padding: 22px 34px;
+  padding: 22px ${documentDimensions.mobileS.paddingLeftRight};
 
   @media ${device.tablet}{
-    height: calc(100vh - 32px);
-    padding: 44px 64px;
+    height: calc(100vh - ${documentDimensions.tablet.headerHeight});
+    padding: 44px ${documentDimensions.tablet.paddingLeftRight};
   }
   @media ${device.laptopL}{
-    height: calc(100vh - 64px);
-    padding: 64px 88px;
+    height: calc(100vh - ${documentDimensions.laptopL.headerHeight});
+    padding: 64px ${documentDimensions.laptopL.paddingLeftRight};
   }
 `
 

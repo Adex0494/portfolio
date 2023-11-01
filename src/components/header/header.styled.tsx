@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { palette } from "@/constants/palette";
-import { device } from "@/constants/responsiveSizes";
+import { device, documentDimensions } from "@/constants/responsiveSizes";
 
 export const Main = styled.main`
   width: 100vw;
@@ -8,15 +8,15 @@ export const Main = styled.main`
   justify-content: space-between;
   align-items: center;
   background-color: ${palette.main.blackBackground};
-  height: 24px;
-  padding: 0 22px;
+  height: ${documentDimensions.mobileS.headerHeight};
+  padding: ${documentDimensions.mobileS.headerTopBottomPadding} ${documentDimensions.mobileS.paddingLeftRight};
   @media ${device.tablet}{
-    height: 32px;
-    padding: 0 44px;
+    height: ${documentDimensions.tablet.headerHeight};
+    padding: ${documentDimensions.tablet.headerTopBottomPadding} ${documentDimensions.tablet.paddingLeftRight};
   }
   @media ${device.laptopL}{
-    height: 64px;
-    padding: 0 88px;
+    height: ${documentDimensions.laptopL.headerHeight};
+    padding: ${documentDimensions.laptopL.headerTopBottomPadding} ${documentDimensions.laptopL.paddingLeftRight};
   }
 `
 

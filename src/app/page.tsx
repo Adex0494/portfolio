@@ -20,6 +20,7 @@ import Photo from '../../public/profile.png'
 import Image from 'next/image'
 import { palette } from '@/constants/palette'
 import ShadowCircle from '@/components/shadowCircle'
+import { contacts } from '@/constants/about'
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
               backgroundcolor={palette.main.blackBackground}
               topshadowcolor={palette.main.topShadowColor}
               bottomshadowcolor={palette.main.bottomShadowColor}
-              url='/calculator'
+              url='/'
             >
               <p style={{ color: palette.main.whiteBackground}}>Download CV</p>
             </ShadowButton>
@@ -45,7 +46,7 @@ export default function Home() {
               backgroundcolor={palette.main.blackBackground}
               topshadowcolor={palette.main.topShadowColor}
               bottomshadowcolor={palette.main.bottomShadowColor}
-              url='https://github.com/Adex0494/'
+              url={contacts.github.href}
             >
               <StyledCircleContainer>
                 <StyledIconContainer>
@@ -57,7 +58,7 @@ export default function Home() {
               backgroundcolor={palette.main.blackBackground}
               topshadowcolor={palette.main.topShadowColor}
               bottomshadowcolor={palette.main.bottomShadowColor}
-              url='https://www.linkedin.com/in/ariangel-d%C3%ADaz-espaillat-531171168/'
+              url={contacts.linkedIn.href}
             >
               <StyledCircleContainer>
                 <StyledIconContainer>

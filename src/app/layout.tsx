@@ -4,6 +4,7 @@ import { Montserrat } from 'next/font/google'
 import Header from '@/components/header'
 import { palette } from '@/constants/palette'
 
+
 const msr = Montserrat({ subsets: ['latin'], weight: '300' })
 
 export const metadata: Metadata = {

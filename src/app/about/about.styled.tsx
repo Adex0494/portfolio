@@ -4,6 +4,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { palette } from '@/constants/palette';
+import { device, documentDimensions } from '@/constants/responsiveSizes';
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 const breakpoints = {
     mobileXl: '750px',
@@ -13,8 +15,19 @@ const breakpoints = {
 
 export const Main = styled.main`
     width: 100vw;
+    padding-bottom: 12px;
     background-color: ${palette.main.blackBackground};
-    padding-top: 32px;
+    padding-top: ${documentDimensions.laptopL.paddingTopBottom};
+    padding-left: ${documentDimensions.mobileS.paddingLeftRight};
+    padding-right: ${documentDimensions.mobileS.paddingLeftRight};
+    @media ${device.tablet}{
+        padding-left: ${documentDimensions.tablet.paddingLeftRight};
+        padding-right: ${documentDimensions.tablet.paddingLeftRight};
+    }
+    @media ${device.laptopL}{
+        padding-left: ${documentDimensions.laptopL.paddingLeftRight};
+        padding-right: ${documentDimensions.laptopL.paddingLeftRight};
+    }
 `
 
 export const Link = styled.a`
@@ -43,8 +56,8 @@ export const RightInnerContainer = styled.div`
 `
 export const StyledTypographyLink = styled(Typography)`
     margin-bottom: 20px !important;
-    color: #b82424;
-    border-bottom: solid 2px #b82424;
+    color: ${palette.main.highlightedTextColor};
+    border-bottom: solid 2px ${palette.main.highlightedTextColor};
     width: fit-content;
     line-height: 1 !important;
 
@@ -81,56 +94,53 @@ export const LeftContainer = styled.div`
 `
 
 export const RightContainer = styled.div`
-    border-left: 2px solid rgba(220,220,220,0.5);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 24px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
     @media(max-width: ${breakpoints.mobileXl}){
         border-left: unset;
         align-items: flex-start;
         width: auto;
         padding-left: 0;
     }
+    @media ${device.tablet}{
+        box-shadow: -2px -1px 8px ${palette.main.circleShadow}, 0px -2px 8px ${palette.main.topShadowColor};
+    }
 `
 
 export const BodySection = styled.section`
-    padding-left: 64px;
-    padding-right: 64px;
-    @media(max-width: ${breakpoints.tabletMd}){
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-    @media(max-width: ${breakpoints.tabletSm}){
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    @media(max-width: ${breakpoints.mobileXl}){
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+    padding: 0;
 `
 
 export const InnerContainer = styled.div`
-    border-top: 2px solid rgba(220,220,220,0.5);
     display: flex;
+    padding-left: 12px;
+    border-radius: 16px;
     @media (max-width: ${breakpoints.mobileXl}){
         flex-direction: column;
         align-items: left;
     }
+    box-shadow: -2px -1px 8px ${palette.main.circleShadow}, 0px -2px 8px ${palette.main.topShadowColor};
 `
 
 export const StyledMailIcon = styled(MailOutlineIcon)`
-    color: #b82424;
+    color: ${palette.main.highlightedTextColor};
 `
 
 export const StyledPlaceIcon = styled(PlaceIcon)`
-    color: #b82424;
+    color: ${palette.main.highlightedTextColor};
 `
 
-export const StyledPhone = styled(PhoneIcon)`
-    color: #b82424;
+export const StyledPhoneIcon = styled(PhoneIcon)`
+    color: ${palette.main.highlightedTextColor};
+`
+
+export const StyledLinkedInIcon = styled(LinkedInIcon)`
+    color: ${palette.main.highlightedTextColor};
 `
 
 export const SubHeader = styled.section`
@@ -162,6 +172,14 @@ export const IconTextContainer = styled.a`
 `
 
 export const StyledTypography = styled(Typography)`
+    display: flex;
+    margin-bottom: 12px !important;
+    color: ${palette.main.whiteBackground};
+`
+
+export const StyledCompanyTypography = styled(Typography)`
+    width: fit-content;
+    border-bottom: 1px solid ${palette.main.circleShadow};
     display: flex;
     margin-bottom: 12px !important;
     color: ${palette.main.whiteBackground};
