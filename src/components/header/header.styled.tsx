@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { palette } from "@/constants/palette";
 import { device, documentDimensions } from "@/constants/responsiveSizes";
+import MenuIcon from '@mui/icons-material/Menu';
+
+export const StyledMenuIcon = styled(MenuIcon)`
+  cursor: pointer;
+  color: ${palette.main.whiteBackground};
+`
 
 export const Main = styled.main`
   width: 100vw;

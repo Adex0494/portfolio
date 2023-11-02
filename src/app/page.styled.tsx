@@ -77,7 +77,8 @@ export const Avatar = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 100%;
+  margin-bottom: -10vw;
+  width: 50%;
   aspect-ratio: 1/1;
   background-color: ${palette.main.blackBackground};
   overflow: hidden;
