@@ -15,10 +15,11 @@ import { palette } from '@/constants/palette'
 import { useRouter } from 'next/navigation'
 
 export default function Header() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState<number>()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth)
     const debounce = (fn: Function, ms: number) => {
       let timer: any
       return () => {
@@ -31,7 +32,6 @@ export default function Header() {
 
     const resizeHandler = () => {
       setWindowWidth(window.innerWidth)
-      console.log(window.innerWidth)
     }
 
     const debounceHandler = debounce(resizeHandler, 300)
@@ -56,7 +56,7 @@ export default function Header() {
 
   return (
     <>
-      {windowWidth > 570 ? (
+      {windowWidth === undefined || windowWidth > 570 ? (
         <Main>
             <FlexContainer>
               <MenuLabel onClick={() => router.push('/')}>Home</MenuLabel>
