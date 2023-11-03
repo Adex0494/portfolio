@@ -12,16 +12,19 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: 44px;
   flex-wrap: wrap;
+  padding: 24px;
   background-color: ${palette.main.blackBackground};
   height: calc(100vh - ${documentDimensions.mobileS.headerHeight});
   @media ${device.tablet}{
     height: calc(100vh - ${documentDimensions.tablet.headerHeight});
+    align-items: center;
   }
   @media ${device.laptopL}{
     height: calc(100vh - ${documentDimensions.laptopL.headerHeight});
+    align-items: center;
   }
 `
 

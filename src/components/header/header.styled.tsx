@@ -23,6 +23,10 @@ export const Main = styled.main`
   }
 `
 
+export const IconDiv = styled.div`
+  color: white;
+`
+
 export const StyledMenuDiv = styled.div`
   height: ${documentDimensions.mobileS.headerHeight};
   display: flex;
@@ -30,6 +34,13 @@ export const StyledMenuDiv = styled.div`
   justify-content: space-between;
   padding: 0 22px;
   background-color: ${palette.main.blackBackground};
+`
+
+export const StyledFlexMenuItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 `
 
 export const StyledMenuIcon = styled(MenuIcon)`
@@ -47,7 +58,10 @@ export const StyledDrawer = styled(Drawer)`
 
 export const FlexContainer = styled.div`
   display: flex;
-  gap: 64px;
+  gap: 20px;
+  @media ${device.tablet}{
+    gap: 64px;
+  }
 `
 
 export const FlexContainerColumn = styled.div`

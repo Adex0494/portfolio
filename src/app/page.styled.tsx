@@ -22,22 +22,31 @@ export const Main = styled.main`
 
 export const FlexContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 52px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  @media ${device.tablet}{
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
 export const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   padding-left: 0px;
   gap: 24px;
   justify-content: center;
   align-items: start;
-  margin-top: -100px;
+  margin-top: 25px;
+
+  @media ${device.tablet}{
+    height: 100%;
+  }
 `
 
 export const BtnsContainer = styled.div`

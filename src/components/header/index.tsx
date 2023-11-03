@@ -10,9 +10,17 @@ import {
   FlexContainerColumn,
   StyledDrawer,
   StyledMenuDiv,
+  StyledFlexMenuItem,
+  IconDiv,
 } from './header.styled'
 import { palette } from '@/constants/palette'
 import { useRouter } from 'next/navigation'
+import HomeIcon from '@mui/icons-material/Home'
+import PortraitIcon from '@mui/icons-material/Portrait'
+import CategoryIcon from '@mui/icons-material/Category'
+import ContactMailIcon from '@mui/icons-material/ContactMail'
+
+const breakpoint = 570
 
 export default function Header() {
   const [windowWidth, setWindowWidth] = useState<number>()
@@ -42,33 +50,59 @@ export default function Header() {
   }, [])
 
   const router = useRouter()
-  const NickNameComponent = <NicknameLabel onClick={() => router.push('/')}>
-  <p>
-    <span style={{ color: palette.main.highlightedTextColor }}>
-      {'{ '}
-    </span>
-    dev-ariangel
-    <span style={{ color: palette.main.highlightedTextColor }}>
-      {' }'}
-    </span>
-  </p>
-</NicknameLabel>
+  const NickNameComponent = (
+    <NicknameLabel onClick={() => router.push('/')}>
+      <p>
+        <span style={{ color: palette.main.highlightedTextColor }}>{'{ '}</span>
+        dev-ariangel
+        <span style={{ color: palette.main.highlightedTextColor }}>{' }'}</span>
+      </p>
+    </NicknameLabel>
+  )
+
+  const menuItemList = [
+    {
+      Icon: <HomeIcon />,
+      label: 'Home',
+      route: '/',
+    },
+    {
+      Icon: <PortraitIcon />,
+      label: 'About',
+      route: '/about',
+    },
+    {
+      Icon: <CategoryIcon />,
+      label: 'Projects',
+      route: '/calculator',
+    },
+    {
+      Icon: <ContactMailIcon />,
+      label: 'Contacts',
+      route: '/contacts',
+    },
+  ]
+
+  const MenuItems = menuItemList.map((menuItem) => (
+    <StyledFlexMenuItem key={menuItem.label}>
+      <IconDiv>{menuItem.Icon}</IconDiv>
+      <MenuLabel
+        onClick={() => {
+          router.push(menuItem.route)
+          windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
+        }}
+      >
+        {menuItem.label}
+      </MenuLabel>
+    </StyledFlexMenuItem>
+  ))
 
   return (
     <>
-      {windowWidth === undefined || windowWidth > 570 ? (
+      {windowWidth === undefined || windowWidth > breakpoint ? (
         <Main>
-            <FlexContainer>
-              <MenuLabel onClick={() => router.push('/')}>Home</MenuLabel>
-              <MenuLabel onClick={() => router.push('/about')}>About</MenuLabel>
-              <MenuLabel onClick={() => router.push('/calculator ')}>
-                Projects
-              </MenuLabel>
-              <MenuLabel onClick={() => router.push('/contacts')}>
-                Contacts
-              </MenuLabel>
-            </FlexContainer>
-            {NickNameComponent}
+          <FlexContainer>{MenuItems}</FlexContainer>
+          {NickNameComponent}
         </Main>
       ) : (
         <>
@@ -77,21 +111,11 @@ export default function Header() {
             {NickNameComponent}
           </StyledMenuDiv>
           <StyledDrawer
-
             anchor='left'
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
           >
-            <FlexContainerColumn>
-              <MenuLabel onClick={() => {router.push('/'); setIsDrawerOpen(false)}}>Home</MenuLabel>
-              <MenuLabel onClick={() => {router.push('/about'); setIsDrawerOpen(false)}}>About</MenuLabel>
-              <MenuLabel onClick={() => {router.push('/calculator '); setIsDrawerOpen(false)}}>
-                Projects
-              </MenuLabel>
-              <MenuLabel onClick={() => {router.push('/contacts'); setIsDrawerOpen(false)}}>
-                Contacts
-              </MenuLabel>
-            </FlexContainerColumn>
+            <FlexContainerColumn>{MenuItems}</FlexContainerColumn>
           </StyledDrawer>
         </>
       )}
