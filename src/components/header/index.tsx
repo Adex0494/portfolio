@@ -7,10 +7,12 @@ import {
   NicknameLabel,
   FlexContainer,
   StyledMenuIcon,
+  FlexContainerColumn,
+  StyledDrawer,
+  StyledMenuDiv,
 } from './header.styled'
 import { palette } from '@/constants/palette'
 import { useRouter } from 'next/navigation'
-import Drawer from '@mui/material/Drawer'
 
 export default function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -40,24 +42,22 @@ export default function Header() {
   }, [])
 
   const router = useRouter()
+  const NickNameComponent = <NicknameLabel onClick={() => router.push('/')}>
+  <p>
+    <span style={{ color: palette.main.highlightedTextColor }}>
+      {'{ '}
+    </span>
+    dev-ariangel
+    <span style={{ color: palette.main.highlightedTextColor }}>
+      {' }'}
+    </span>
+  </p>
+</NicknameLabel>
+
   return (
     <>
       {windowWidth > 570 ? (
         <Main>
-          <div>
-            <NicknameLabel onClick={() => router.push('/')}>
-              <p>
-                <span style={{ color: palette.main.highlightedTextColor }}>
-                  {'{ '}
-                </span>
-                dev-ariangel
-                <span style={{ color: palette.main.highlightedTextColor }}>
-                  {' }'}
-                </span>
-              </p>
-            </NicknameLabel>
-          </div>
-          <div>
             <FlexContainer>
               <MenuLabel onClick={() => router.push('/')}>Home</MenuLabel>
               <MenuLabel onClick={() => router.push('/about')}>About</MenuLabel>
@@ -68,20 +68,31 @@ export default function Header() {
                 Contacts
               </MenuLabel>
             </FlexContainer>
-          </div>
+            {NickNameComponent}
         </Main>
       ) : (
         <>
-          <StyledMenuIcon onClick={() => setIsDrawerOpen(true)} />
-          <Drawer
+          <StyledMenuDiv>
+            <StyledMenuIcon onClick={() => setIsDrawerOpen(true)} />
+            {NickNameComponent}
+          </StyledMenuDiv>
+          <StyledDrawer
+
             anchor='left'
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
           >
-            <div onClick={() => setIsDrawerOpen(false)}>
-              <p style={{ color: 'black' }}>hola</p>
-            </div>
-          </Drawer>
+            <FlexContainerColumn>
+              <MenuLabel onClick={() => {router.push('/'); setIsDrawerOpen(false)}}>Home</MenuLabel>
+              <MenuLabel onClick={() => {router.push('/about'); setIsDrawerOpen(false)}}>About</MenuLabel>
+              <MenuLabel onClick={() => {router.push('/calculator '); setIsDrawerOpen(false)}}>
+                Projects
+              </MenuLabel>
+              <MenuLabel onClick={() => {router.push('/contacts'); setIsDrawerOpen(false)}}>
+                Contacts
+              </MenuLabel>
+            </FlexContainerColumn>
+          </StyledDrawer>
         </>
       )}
     </>

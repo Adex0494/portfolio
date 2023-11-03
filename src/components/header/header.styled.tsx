@@ -2,11 +2,8 @@ import styled from "styled-components";
 import { palette } from "@/constants/palette";
 import { device, documentDimensions } from "@/constants/responsiveSizes";
 import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer'
 
-export const StyledMenuIcon = styled(MenuIcon)`
-  cursor: pointer;
-  color: ${palette.main.whiteBackground};
-`
 
 export const Main = styled.main`
   width: 100vw;
@@ -26,9 +23,38 @@ export const Main = styled.main`
   }
 `
 
+export const StyledMenuDiv = styled.div`
+  height: ${documentDimensions.mobileS.headerHeight};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background-color: ${palette.main.blackBackground};
+`
+
+export const StyledMenuIcon = styled(MenuIcon)`
+  cursor: pointer;
+  color: ${palette.main.whiteBackground};
+`
+
+export const StyledDrawer = styled(Drawer)`
+  color: ${palette.main.blackBackground};
+  ${"& .MuiPaper-root"} {
+    background-color: ${palette.main.blackBackground};
+    padding: 12px;
+  }
+`
+
 export const FlexContainer = styled.div`
   display: flex;
   gap: 64px;
+`
+
+export const FlexContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-top: ${documentDimensions.mobileS.headerHeight};
 `
 
 export const MenuLabel = styled.label`
