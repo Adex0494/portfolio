@@ -19,12 +19,19 @@ import HomeIcon from '@mui/icons-material/Home'
 import PortraitIcon from '@mui/icons-material/Portrait'
 import CategoryIcon from '@mui/icons-material/Category'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
+import { setCurrentPage } from '@/globalRedux/slices/pageIndexSlice'
+import { RootState } from '@/globalRedux/store'
+import { useSelector, useDispatch } from 'react-redux'
 
 const breakpoint = 570
 
 export default function Header() {
   const [windowWidth, setWindowWidth] = useState<number>()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const dispatch = useDispatch()
+  const currentPage = useSelector((state: RootState) => state.pageIndex.currentPage )
+
+  console.log(currentPage)
 
   useEffect(() => {
     setWindowWidth(window.innerWidth)
@@ -84,13 +91,13 @@ export default function Header() {
   ]
 
   const MenuItems = menuItemList.map((menuItem) => (
-    <StyledFlexMenuItem key={menuItem.label}>
+    <StyledFlexMenuItem isSelected={currentPage === menuItem.route} key={menuItem.label} onClick={() => {
+      router.push(menuItem.route)
+      dispatch(setCurrentPage(menuItem.route))
+      windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
+    }}>
       <IconDiv>{menuItem.Icon}</IconDiv>
       <MenuLabel
-        onClick={() => {
-          router.push(menuItem.route)
-          windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
-        }}
       >
         {menuItem.label}
       </MenuLabel>

@@ -46,6 +46,7 @@ export const FlexColumnContainer = styled.div`
 
   @media ${device.tablet}{
     height: 100%;
+    margin-top: -10vh;
   }
 `
 

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import Header from '@/components/header'
 import { palette } from '@/constants/palette'
-
+import { TheProvider } from '@/globalRedux/provider'
 
 const msr = Montserrat({ subsets: ['latin'], weight: '300' })
 
@@ -18,10 +18,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={msr.className} style={{height: '100vh', backgroundColor: palette.main.blackBackground}}>
-        <Header/>
-        {children}
+    <html lang='en'>
+      <body
+        className={msr.className}
+        style={{
+          height: '100vh',
+          backgroundColor: palette.main.blackBackground,
+        }}
+      >
+        <TheProvider>
+          <Header />
+          {children}
+        </TheProvider>
       </body>
     </html>
   )
