@@ -33,8 +33,6 @@ export default function Header() {
   const pathname = usePathname()
   const currentPage = useSelector((state: RootState) => state.pageIndex.currentPage )
 
-  console.log(currentPage, pathname)
-
   useEffect(() => {
     setWindowWidth(window.innerWidth)
     const debounce = (fn: Function, ms: number) => {
@@ -93,7 +91,7 @@ export default function Header() {
   ]
 
   const MenuItems = menuItemList.map((menuItem) => (
-    <StyledFlexMenuItem isSelected={currentPage === menuItem.route} key={menuItem.label} onClick={() => {
+    <StyledFlexMenuItem isSelected={pathname === menuItem.route} key={menuItem.label} onClick={() => {
       dispatch(setCurrentPage(menuItem.route))
       windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
       router.push(menuItem.route)

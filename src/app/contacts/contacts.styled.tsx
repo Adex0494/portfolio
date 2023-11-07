@@ -30,7 +30,13 @@ export const Main = styled.main`
 
 export const FlexContainer = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 44px;
+  flex-direction: column;
+
+  @media ${device.tablet}{
+    flex-direction: row;
+    gap: 32px;
+  }
 `
 
 export const StyledMailIcon = styled(MailOutlineIcon)`
