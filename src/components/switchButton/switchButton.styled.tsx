@@ -56,13 +56,13 @@ export const CircleContainer = styled.div<{backgroundcolor: string}>`
 `
 
 export const StyledLabel = styled.label<{txtcolor: string}>`
-  font-size: 8px;
+  font-size: 10px;
   color: ${({txtcolor})=> txtcolor};
   @media ${device.tablet}{
-    font-size: 10px;
+    font-size: 12px;
   }
   @media ${device.laptopL}{
-    font-size: 12px;
+    font-size: 14px;
   }
   ${transition};
 `

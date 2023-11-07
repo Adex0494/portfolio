@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation';
 import {
   Main,
   MenuLabel,
@@ -29,9 +30,10 @@ export default function Header() {
   const [windowWidth, setWindowWidth] = useState<number>()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const dispatch = useDispatch()
+  const pathname = usePathname()
   const currentPage = useSelector((state: RootState) => state.pageIndex.currentPage )
 
-  console.log(currentPage)
+  console.log(currentPage, pathname)
 
   useEffect(() => {
     setWindowWidth(window.innerWidth)
@@ -92,9 +94,9 @@ export default function Header() {
 
   const MenuItems = menuItemList.map((menuItem) => (
     <StyledFlexMenuItem isSelected={currentPage === menuItem.route} key={menuItem.label} onClick={() => {
-      router.push(menuItem.route)
       dispatch(setCurrentPage(menuItem.route))
       windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
+      router.push(menuItem.route)
     }}>
       <IconDiv>{menuItem.Icon}</IconDiv>
       <MenuLabel

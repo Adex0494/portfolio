@@ -36,28 +36,28 @@ export const StyledContainer = styled("div")`
   ${transition};
 `
 export const HeaderLabel = styled.label<{txtcolor: string}>`
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   color: ${({txtcolor})=> txtcolor};
   @media ${device.tablet}{
-    font-size: 12px;
+    font-size: 14;
   }
   @media ${device.laptopL}{
-    font-size: 14px;
+    font-size: 16px;
   }
   ${transition};
 `
 
 export const HeaderContainer = styled.div`
-  width: 175px;
-  height: 24px;
+  width: 200px;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4px;
   @media ${device.tablet}{
-    width: 200px;
-    height: 30px;
+    width: 250px;
+    height: 35px;
     margin-bottom: 8px
   }
   @media ${device.laptopL}{
@@ -69,11 +69,11 @@ export const HeaderContainer = styled.div`
 `
 
 export const DisplayContainer = styled.div`
-  width: 175px;
-  height: 48px;
+  width: 200px;
+  height: 58px;
   @media ${device.tablet}{
-    width: 200px;
-    height: 58px;
+    width: 250px;
+    height: 70px;
   }
   @media ${device.laptopL}{
     width: 300px;
@@ -83,14 +83,14 @@ export const DisplayContainer = styled.div`
 `
 
 export const BtnsContainer = styled("div")<{backgroundcolor: string}>`
-  width: 175px;
-  gap: 8px;
-  padding: 8px;
+  width: 200px;
+  gap: 10px;
+  padding: 10px;
   border-radius: 5px;
   @media ${device.tablet}{
-    width: 200px;
-    gap: 10px;
-    padding: 10px;
+    width: 250px;
+    gap: 11px;
+    padding: 11px;
   }
   @media ${device.laptopL}{
     width: 300px;
@@ -107,13 +107,13 @@ export const BtnsContainer = styled("div")<{backgroundcolor: string}>`
 
 export const StyledRow = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  height: 20px;
+  height: 24px;
   justify-content: space-around;
   @media ${device.tablet}{
-    height: 24px;
-    gap: 10px
+    height: 28px;
+    gap: 11px
   }
   @media ${device.laptopL}{
     height: 34px;
