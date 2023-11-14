@@ -6,5 +6,6 @@ export const palette = {
     highlightedTextColor: '#0380fe',
     whiteBackground: '#fdfdfd',
     circleShadow: '#962cae',
+    lightText: '#999'
   }
 }
