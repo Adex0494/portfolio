@@ -25,10 +25,7 @@ export const Main = styled.div<{backgroundcolor: string}>`
 export const StyledTopLabel = styled.div<{fontcolor: string}>`
   color: ${({fontcolor})=>fontcolor};
   font-weight: bolder;
-  font-size: 10px;
-  @media ${device.tablet}{
-    font-size: 12px;
-  }
+  font-size: 12px;
   @media ${device.laptopL}{
     font-size: 16px;
   }
@@ -37,10 +34,7 @@ export const StyledTopLabel = styled.div<{fontcolor: string}>`
 export const StyledBottomLabel = styled.div<{fontcolor: string}>`
   color: ${({fontcolor})=>fontcolor};
   font-weight: bolder;
-  font-size: 14px;
-  @media ${device.tablet}{
-    font-size: 18px;
-  }
+  font-size: 18px;
   @media ${device.laptopL}{
     font-size: 26px;
   }

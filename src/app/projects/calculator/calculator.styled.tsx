@@ -68,7 +68,7 @@ export const HeaderContainer = styled.div`
 
 export const DisplayContainer = styled.div`
   width: 250px;
-  height: 70px;
+  height: 60px;
   @media ${device.laptopL}{
     width: 300px;
     height: 80px;
