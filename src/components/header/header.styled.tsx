@@ -36,13 +36,13 @@ export const StyledMenuDiv = styled.div`
   background-color: ${palette.main.blackBackground};
 `
 
-export const StyledFlexMenuItem = styled.div<{isSelected: boolean}>`
+export const StyledFlexMenuItem = styled.div<{isselected: boolean}>`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  border-bottom: ${({isSelected}) => isSelected ? `2px solid ${palette.main.circleShadow}` : 'unset'};
+  border-bottom: ${({isselected}) => isselected ? `2px solid ${palette.main.circleShadow}` : 'unset'};
 `
 
 export const StyledMenuIcon = styled(MenuIcon)`

@@ -25,16 +25,20 @@ export const FlexContainer = styled.div`
 export const IconContainer = styled.div`
     display: flex;
     justify-content: end;
+    height: 64px;
+    min-width: 64px;
 `
 
 export const StyledTitle = styled.label`
     font-size: 24px;
     font-weight: 700;
     color: ${palette.main.blackBackground};
+    cursor: pointer;
 `
 
 export const StyledDescription = styled.label`
     font-size: 16px;
     font-weight: 300px;
-    color: ${palette.main.lightText}
+    color: ${palette.main.lightText};
+    cursor: pointer;
 `

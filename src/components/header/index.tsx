@@ -81,7 +81,7 @@ export default function Header() {
     {
       Icon: <CategoryIcon />,
       label: 'Projects',
-      route: '/calculator',
+      route: '/projects',
     },
     {
       Icon: <ContactMailIcon />,
@@ -91,7 +91,7 @@ export default function Header() {
   ]
 
   const MenuItems = menuItemList.map((menuItem) => (
-    <StyledFlexMenuItem isSelected={pathname === menuItem.route} key={menuItem.label} onClick={() => {
+    <StyledFlexMenuItem isselected={pathname === menuItem.route} key={menuItem.label} onClick={() => {
       dispatch(setCurrentPage(menuItem.route))
       windowWidth !== undefined && windowWidth <= breakpoint && setIsDrawerOpen(false)
       router.push(menuItem.route)
