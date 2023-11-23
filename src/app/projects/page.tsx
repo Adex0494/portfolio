@@ -12,7 +12,7 @@ export default function Projects() {
         <ProjectCard url='/projects/calculator' Icon={StyledCalculateIcon} title='Calculator' description='A simple, responsive calculator with multiple themes' topcolor={palette.main.highlightedTextColor} />
       </CardContainer>
       <CardContainer>
-        <ProjectCard url='https://fripickpos.netlify.app/' newTabRoute Icon={StyledStoreIcon} title='Point of Sale' description='A Point-of-Sale application (POS). Log in with these credentials: {user: Performanceprovieder, password: Prueba01}' topcolor={palette.main.circleShadow} />
+        <ProjectCard url='https://fripickpos.netlify.app/' newTabRoute Icon={StyledStoreIcon} title='Point of Sale' description='A Point-of-Sale application (POS) developed for Fripick.com' topcolor={palette.main.circleShadow} />
       </CardContainer>
     </StyledMain>
   )
