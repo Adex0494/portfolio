@@ -16,7 +16,7 @@ export const contacts = {
     text: "1-809-910-4977",
   },
   linkedIn: {
-    href: "https://www.linkedin.com/in/ariangel-d%C3%ADaz-espaillat-531171168/",
+    href: "https://www.linkedin.com/in/ariangel-diaz-espaillat/",
     text: "LinkedIn profile",
   },
   github: {
