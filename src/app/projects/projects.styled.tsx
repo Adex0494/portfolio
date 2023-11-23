@@ -8,15 +8,18 @@ export const StyledMain = styled.main`
   background-color: ${palette.main.whiteBackground};
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 16px;
   height: calc(100vh - ${documentDimensions.mobileS.headerHeight});
   @media ${device.tablet}{
     height: calc(100vh - ${documentDimensions.tablet.headerHeight});
+    flex-direction: row;
   }
   @media ${device.laptopL}{
     height: calc(100vh - ${documentDimensions.laptopL.headerHeight});
+    flex-direction: row;
   }
 `
 
@@ -32,6 +35,7 @@ export const StyledStoreIcon = styled(StoreIcon)`
 `
 
 export const CardContainer = styled.div`
+  min-width: 300px;
   width: 20vw;
   aspect-ratio: 4/3;
 `
