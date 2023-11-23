@@ -49,15 +49,13 @@ export const HeaderLabel = styled.label<{txtcolor: string}>`
 `
 
 export const HeaderContainer = styled.div`
-  width: 200px;
-  height: 30px;
+  width: 250px;
+  height: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4px;
   @media ${device.tablet}{
-    width: 250px;
-    height: 35px;
     margin-bottom: 8px
   }
   @media ${device.laptopL}{
@@ -69,12 +67,8 @@ export const HeaderContainer = styled.div`
 `
 
 export const DisplayContainer = styled.div`
-  width: 200px;
-  height: 58px;
-  @media ${device.tablet}{
-    width: 250px;
-    height: 70px;
-  }
+  width: 250px;
+  height: 70px;
   @media ${device.laptopL}{
     width: 300px;
     height: 80px;
@@ -83,12 +77,11 @@ export const DisplayContainer = styled.div`
 `
 
 export const BtnsContainer = styled("div")<{backgroundcolor: string}>`
-  width: 200px;
+  width: 250px;
   gap: 10px;
   padding: 10px;
   border-radius: 5px;
   @media ${device.tablet}{
-    width: 250px;
     gap: 11px;
     padding: 11px;
   }
